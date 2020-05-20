@@ -12,7 +12,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
     entry: {
       index: "./src/index.js",
       about: "./src/about.js",
-      contact: "./src/contact.js"
+      contact: "./src/contact.js",
+      styles: "./src/scss/styles.scss"
     },
     output: {
       filename: '[name].js',
@@ -22,6 +23,20 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
       host: "localhost",
       port: 3000,
       open: true
+    },
+    module: {
+      rules: [
+        {
+          test: /\.(s*)css$/,
+          use: [
+            { loader: 'file-loader', options: { name: 'style.css' } },
+            { loader: 'extract-loader' },
+            { loader: 'css-loader' },
+            { loader: 'postcss-loader' },
+            { loader: 'sass-loader' }
+          ]
+        }
+      ],
     },
     plugins: [
       createHtmlWebpackPluginFor('index'),
