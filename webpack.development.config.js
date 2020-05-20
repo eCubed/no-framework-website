@@ -5,6 +5,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
   const distFolder = require('path').resolve(__dirname, "dist");
   module.exports = {
     mode: "development",
+    watch: true,
+    watchOptions: {
+      ignored: /node_modules/
+    },
     entry: {
       index: "./src/index.js",
       about: "./src/about.js",
@@ -13,6 +17,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
     output: {
       filename: '[name].js',
       path: distFolder
+    },
+    devServer: {
+      host: "localhost",
+      port: 3000,
+      open: true
     },
     plugins: [
       createHtmlWebpackPluginFor('index'),
