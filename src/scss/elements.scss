@@ -1,0 +1,9 @@
+@import './variables';
+
+a {
+  color: $main-color;
+}
+
+p {
+  margin-bottom: #{2 * $general-spacing};
+}

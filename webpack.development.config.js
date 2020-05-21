@@ -1,22 +1,24 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 "use strict";
 {
   const distFolder = require('path').resolve(__dirname, "dist");
   module.exports = {
     mode: "development",
-    watch: true,
+    
     watchOptions: {
       ignored: /node_modules/
     },
+    
     entry: {
       index: "./src/index.js",
       about: "./src/about.js",
-      contact: "./src/contact.js",
-      styles: "./src/scss/styles.scss"
+      contact: "./src/contact.js"
     },
     output: {
-      filename: '[name].js',
+      filename: '[name].[hash].js',
       path: distFolder
     },
     devServer: {
@@ -29,8 +31,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
         {
           test: /\.(s*)css$/,
           use: [
-            { loader: 'file-loader', options: { name: 'style.css' } },
-            { loader: 'extract-loader' },
+            { loader: MiniCssExtractPlugin.loader },
             { loader: 'css-loader' },
             { loader: 'postcss-loader' },
             { loader: 'sass-loader' }
@@ -41,7 +42,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
     plugins: [
       createHtmlWebpackPluginFor('index'),
       createHtmlWebpackPluginFor('about'),
-      createHtmlWebpackPluginFor('contact')
+      createHtmlWebpackPluginFor('contact'),
+      new CleanWebpackPlugin(),
+      new MiniCssExtractPlugin({
+        filename: `styles.[hash].css`
+      })
     ]
   };
 }
