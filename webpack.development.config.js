@@ -13,9 +13,9 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
     },
     
     entry: {
-      index: "./src/index.js",
-      about: "./src/about.js",
-      contact: "./src/contact.js"
+      index: "./src/index.ts",
+      about: "./src/about.ts",
+      contact: "./src/contact.ts"
     },
     output: {
       filename: '[name].[hash].js',
