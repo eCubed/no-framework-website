@@ -66,6 +66,8 @@ I have just begun putting together a very basic website using TS and SASS to cod
 
 5. **Organize SCSS per Industry Best Practices**. I've seen some sort of best practice across projects (even of different platforms and frameworks) of how to organize SCSS. I might want to do this, but that's beyond the scope of this project. Well, I might just "do it" but will not include it in the standard documentation for this project.
 
+6. **Section on Attempt To Pull Some Framework Features**. I just realized that this entire project isn't just the effort of how to set up Webpack to deploy a website from an environment that is easy for the developer. It's about trying to build a website without frameworks (or libraries like React), which, since it's 2020, requires modern features and modern looks that are easy to pull in a framework but may be difficult in vanilla JS! One of the features I heavily rely on from frameworks is the ability to reflect live variable values on the page by merely changing the values in code. In plain JS, we would have to hunt down the element we earlier prepared and explicity set its `innerText` or `innerHtml` value. This becomes extremely tedious because we'd have to "chase-and-set" the element in all places in our code that changes the value of that variable. Then, it becomes a very daunting task to do this for every single variable. Another favorite feature of mine, this time, from Angular specifically, is services and DI. I don't know off the top of my head if I can even start to think to pull those off in vanilla JS. But maybe that's later!
+
 
 
 
