@@ -1,9 +1,4 @@
-const template = `
-  <div>
-    <h1>Hello</h1>
-    <p id="p-message"></p>
-  </div>
-`;
+const template = require('./hello-component.html');
 
 export class HelloComponent extends HTMLElement {
   
@@ -17,6 +12,10 @@ export class HelloComponent extends HTMLElement {
 
     this._messageElement = shadow.getElementById('p-message');
     this._messageElement.innerText = this.getAttribute('message');
+
+    this._messageElement.addEventListener('click', () => {
+      this.dispatchEvent(new CustomEvent('messageTapped', { detail: 'You tapped me!' }))
+    });
   }
 
   static get observedAttributes() {
@@ -25,7 +24,6 @@ export class HelloComponent extends HTMLElement {
 
   set message(value: string) {
     this.setAttribute('message', value);
-    // console.log(`Set message: ${value}`);
     this._messageElement.innerHTML = value;
   }
 

@@ -29,9 +29,17 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
     module: {
       rules: [
         {
-          test: /\.(s*)css$/,
+          test: /styles.scss$/,
           use: [
             { loader: MiniCssExtractPlugin.loader },
+            { loader: 'css-loader' },
+            { loader: 'postcss-loader' },
+            { loader: 'sass-loader' }
+          ]
+        },
+        {
+          test: /components.*\.scss$/,
+          use: [
             { loader: 'css-loader' },
             { loader: 'postcss-loader' },
             { loader: 'sass-loader' }
@@ -66,6 +74,10 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
           test: /\.ts$/,
           loader: "ts-loader",
           exclude: /node_modules/,
+        },
+        {
+          test: /\.html$/,
+          loader: "html-loader"
         }
       ],
     },
