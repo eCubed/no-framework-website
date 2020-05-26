@@ -6,12 +6,10 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 {
   const distFolder = require('path').resolve(__dirname, "dist");
   module.exports = {
-    mode: "development",
-    
+    mode: "development",    
     watchOptions: {
       ignored: /node_modules/
-    },
-    
+    },    
     entry: {
       index: "./src/index.ts",
       about: "./src/about.ts",

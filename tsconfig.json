@@ -19,7 +19,9 @@
     "moduleResolution": "node",
     "sourceMap": true
   },
-
+  "typeRoots":[
+    "./types"
+  ],
   "include": [ "./src/*" ],
   "compileOnSave": false
 }
