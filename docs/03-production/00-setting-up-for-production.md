@@ -1,0 +1,3 @@
+# Setting Up For Production
+
+Right now, I am pretty satisfied with my app. Everything works. Everything looks great. I get a working production build when I run `npm run build`. Now, I want to build for production. The package put together for the development build works, but it is not optimized. The file sizes are larger for the scripts because of all the extra white space, full variable and function names, and comments. I'll need to create settings that will deploy project to production.

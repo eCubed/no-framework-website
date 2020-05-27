@@ -6,10 +6,10 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 {
   const distFolder = require('path').resolve(__dirname, "dist");
   module.exports = {
-    mode: "development",    
+    mode: "development",
     watchOptions: {
       ignored: /node_modules/
-    },    
+    },
     entry: {
       index: "./src/index.ts",
       about: "./src/about.ts",
@@ -17,6 +17,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
     },
     output: {
       filename: '[name].[hash].js',
+      chunkFilename: '[name].[hash].chunk.js',
       path: distFolder
     },
     devServer: {
@@ -51,8 +52,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
               loader: 'image-webpack-loader',
               options: {
                 mozjpeg: {
-                    progressive: true,
-                    quality: 65
+                  progressive: true,
+                  quality: 65
                 },
                 optipng: {
                   enabled: false,
@@ -80,7 +81,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
       ],
     },
     resolve: {
-      extensions: ['.ts','.js']
+      extensions: ['.ts', '.js']
     },
     plugins: [
       createHtmlWebpackPluginFor('index'),
