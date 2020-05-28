@@ -6,7 +6,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 {
   const distFolder = require('path').resolve(__dirname, "dist");
   module.exports = {
-    mode: "development",
+    mode: "production",
     watchOptions: {
       ignored: /node_modules/
     },
@@ -16,8 +16,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
       contact: "./src/contact.ts"
     },
     output: {
-      filename: '[name].[hash].js',
-      chunkFilename: '[name].[hash].chunk.js',
+      filename: '[name].js',
+      chunkFilename: '[name].chunk.js',
       path: distFolder
     },
     optimization: {
@@ -102,7 +102,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
       createHtmlWebpackPluginFor('contact'),
       new CleanWebpackPlugin(),
       new MiniCssExtractPlugin({
-        filename: `styles.[hash].css`
+        filename: `styles.css`
       })
     ]
   };

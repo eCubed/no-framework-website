@@ -6,14 +6,17 @@ nav {
   gap: #{2 *  $general-spacing};
   border-bottom: 2px white solid;  
 
-  div {
-    padding: $general-spacing;
-  }  
-
   a {
+    padding: $general-spacing;
+    display: block;
     color: white;
     text-decoration: none;
     font-size: 150%;
     font-weight: bold;
+
+    &.active {
+      color: black;
+      background-color: white;
+    }
   }
 }

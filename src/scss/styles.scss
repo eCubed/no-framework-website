@@ -5,10 +5,17 @@
   font-family: sans-serif;
 }
 
+@import './variables';
 @import './elements.scss';
 
 body {
   background-image: url('../assets/landscape-scenic-going-to-the-sun-road-rocky-mountains-163550.jpeg');
   background-size: cover;
   color: white;
+}
+
+.page-content {
+  padding: #{ 3 * $general-spacing };
+  background-color: rgba(255,255,255,0.75);
+  color: black;
 }
