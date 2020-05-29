@@ -1,13 +1,26 @@
 @import '../../scss/variables';
 
+
+:host {
+  position: fixed;
+  width: 100%;
+  box-shadow: 0px 10px 24px -8px rgba(0,0,0,0.30);
+  z-index: 10;
+}
+
 nav {
+
+  background-color: $main-color;
+
   display: flex;
   justify-content: right;
-  gap: #{2 *  $general-spacing};
-  border-bottom: 2px white solid;  
+  width: 100%;
+  // gap: #{2 *  $general-spacing};
 
   a {
     padding: $general-spacing;
+    padding-left: #{ 3 * $general-spacing };
+    padding-right: #{ 3 * $general-spacing };
     display: block;
     color: white;
     text-decoration: none;
@@ -15,7 +28,7 @@ nav {
     font-weight: bold;
 
     &.active {
-      color: black;
+      color: $main-color;
       background-color: white;
     }
   }

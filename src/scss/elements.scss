@@ -1,16 +1,64 @@
-@import './variables';
+@import "./variables";
 
 a {
   color: $main-color;
 }
 
 p {
-  margin-bottom: #{ 2 * $general-spacing };
+  margin-bottom: #{2 * $general-spacing};
 }
 
-img.stand-alone {
-  display: block;
-  width: 100%;
-  height: auto;
-  margin-bottom: #{ 2 * $general-spacing };
+%common-heading-styles {
+  
+  margin-bottom: #{3 * $general-spacing};
+  color: $main-color;
+  font-weight: bold;
+}
+
+h1 {
+  @extend %common-heading-styles;
+  font-size: 150%;
+}
+
+h2 {
+  @extend %common-heading-styles;
+  font-size: 140%;
+}
+
+h3 {
+  @extend %common-heading-styles;
+  font-size: 130%;
+}
+
+h4 {
+  @extend %common-heading-styles;
+  font-size: 120%;
+}
+
+h5 {
+  @extend %common-heading-styles;
+  font-size: 110%;
+}
+
+h6 {
+  @extend %common-heading-styles;
+}
+
+img {
+  &.stand-alone {
+    display: block;
+    width: 100%;
+    height: auto;
+    opacity: 0;
+    margin-bottom: #{2 * $general-spacing};
+
+    transform: translateY(3em);
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    will-change: transform, opacity;
+
+    &.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 }

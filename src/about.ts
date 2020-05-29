@@ -13,3 +13,11 @@ async function runEasyMathAsync() {
 }
 
 runEasyMathAsync();
+
+async function setupScrollingEffectsAsync() {
+  const se = await import(/* webpackChunkName: "scrollfx" */'./utils/scrollingtools');
+
+  se.prepareShowOnScroll('stand-alone');
+}
+
+setupScrollingEffectsAsync();

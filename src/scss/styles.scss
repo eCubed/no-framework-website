@@ -8,14 +8,22 @@
 @import './variables';
 @import './elements.scss';
 
+* {
+  font-family: Open Sans, sans-serif;
+  font-size: 15pt;
+}
+
 body {
-  background-image: url('../assets/landscape-scenic-going-to-the-sun-road-rocky-mountains-163550.jpeg');
+  // background-image: url('../assets/landscape-scenic-going-to-the-sun-road-rocky-mountains-163550.jpeg');
   background-size: cover;
   color: white;
 }
 
 .page-content {
+  width: 50%;  
+  margin: auto;
   padding: #{ 3 * $general-spacing };
+  padding-top: #{ 7 * $general-spacing};
   background-color: rgba(255,255,255,0.75);
   color: black;
 }
