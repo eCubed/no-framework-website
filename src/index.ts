@@ -5,11 +5,13 @@ import { HelloComponent } from './components/hello-component/hello-component';
 import { NavbarComponent } from './components/nav-bar/nav-bar';
 import { ListComponent } from './components/list-c/list-c';
 import { PopupSelectComponent } from './components/popup-select-c/popup-select-c';
+import { TemplatedComponent } from './components/templated-c/templated-c';
 
 customElements.define('nav-bar', NavbarComponent);
 customElements.define('ec-hello', HelloComponent);
 customElements.define('list-c', ListComponent);
 customElements.define('popup-select-c', PopupSelectComponent);
+customElements.define('templated-c', TemplatedComponent);
 
 const items = [
   { number: 4, name: 'Jarret Stidham' },
