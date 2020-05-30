@@ -1,0 +1,14 @@
+@import '../../scss/variables';
+
+.component-container {
+  position: relative;
+  cursor: pointer;
+
+  & > * {
+    position: absolute;
+  }
+}
+
+list-c {
+  box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+}

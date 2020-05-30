@@ -1,0 +1,7 @@
+@import './variables';
+
+.repeater-item {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  background-color: mix($main-color, white, 30%);
+}

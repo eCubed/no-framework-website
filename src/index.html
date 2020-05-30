@@ -8,8 +8,29 @@
 <body>
   <nav-bar></nav-bar>
   <div class="page-content">
-
     <h1>Index Page</h1>
+    <popup-select-c>
+      <div class="repeater-item">
+        <div class="index">
+          {{ index }}
+        </div>
+        <div class="info">          
+          {{ item.name }} - {{ item.number }}
+        </div>
+      </div>
+    </popup-select-c>
+    <!--
+    <list-c>
+      <div class="repeater-item">
+        <div class="index">
+          {{ index }}
+        </div>
+        <div class="info">          
+          {{ item.name }} - {{ item.number }}
+        </div>
+      </div>
+    </list-c>
+    -->
     <p>Lorem ipsum HALLA!</p>
     <p>Paragraph two</p>
     <p>Paragraph three</p>

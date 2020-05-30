@@ -1,0 +1,12 @@
+@import '../../scss/variables';
+
+.repeater-item {
+  background-color: #eeeeee;
+  padding: $general-spacing;
+  display: flex;
+  gap: $general-spacing;
+
+  &.selected {
+    background-color: yellow;
+  }
+}

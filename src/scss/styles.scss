@@ -1,17 +1,16 @@
+
+
 * {
   padding: 0;
   margin: 0;
+  font-family: Open Sans, sans-serif;
+  font-size: 15pt;
   box-sizing: border-box;
-  font-family: sans-serif;
 }
 
 @import './variables';
 @import './elements.scss';
-
-* {
-  font-family: Open Sans, sans-serif;
-  font-size: 15pt;
-}
+@import './widgets.scss';
 
 body {
   // background-image: url('../assets/landscape-scenic-going-to-the-sun-road-rocky-mountains-163550.jpeg');
