@@ -1,4 +1,5 @@
 import { ListComponent } from '../list-c/list-c';
+import { queryElementHtmlStringFromHTMLString } from '../../utils/domtools';
 
 const scss = require('./popup-select-c.scss');
 const template = '<style>' + scss[0][1] + '</style>' + require('./popup-select-c.html');
@@ -24,11 +25,17 @@ export class PopupSelectComponent extends HTMLElement {
     this._selectedItemDisplayElement.addEventListener('click', (e) => {
       this.resolvePopupListElement();
       if (this._isPopupOpen) {
-        this._componentContainer.removeChild(this._popupListElement);
+        this._popupListElement.classList.remove('visible');
+        setTimeout(() => {          
+          this._componentContainer.removeChild(this._popupListElement);
+        }, 500);
         this._isPopupOpen = false;
-      } else {
+      } else {          
         this._componentContainer.appendChild(this._popupListElement);
         this._isPopupOpen = true;
+        setTimeout(() => {          
+          this._popupListElement.classList.add('visible');
+        },50);         
       }
     });
   }
@@ -36,17 +43,22 @@ export class PopupSelectComponent extends HTMLElement {
   private resolvePopupListElement() {
     if (this._popupListElement == null) {
       const {y, height} = this._selectedItemDisplayElement.getBoundingClientRect();
+      console.log(height);
       this._popupListElement = document.createElement('list-c') as ListComponent;
       this._popupListElement.style.position = 'absolute';
-      this._popupListElement.style.top = `${y + height}px`;
-      this._popupListElement.innerHTML = this.innerHTML;
+      this._popupListElement.style.top = `${height}px`;
+      this._popupListElement.innerHTML = queryElementHtmlStringFromHTMLString(this.innerHTML, 'item-template');
       this._popupListElement.items = this._items;
       this._popupListElement.addEventListener('onItemSelected', (e: CustomEvent) => {
         this._selectedItem = e.detail;
+        this.resolveSelectedItemDisplay();
         // Maybe rerender the selected item
         
         // Close the popup
-        this._componentContainer.removeChild(this._popupListElement);
+        this._popupListElement.classList.remove('visible');
+        setTimeout(() => {          
+          this._componentContainer.removeChild(this._popupListElement);
+        }, 500);
         this._isPopupOpen = false;
 
         this.dispatchEvent(new CustomEvent('onItemSelected', { detail: e.detail}));
@@ -55,6 +67,16 @@ export class PopupSelectComponent extends HTMLElement {
     if (this._selectedItem != null) {
       this._popupListElement.selectedItem = this._selectedItem;
     }
+  }
+
+  private resolveSelectedItemDisplay() {
+    const selectedItemDisplay = this.shadowRoot.querySelector('#selected-item-display');
+
+    selectedItemDisplay.innerHTML = queryElementHtmlStringFromHTMLString(this.innerHTML, 'selected-item-template');
+
+    Object.keys(this._selectedItem).forEach(key => {
+      selectedItemDisplay.innerHTML = selectedItemDisplay.innerHTML.replace(`{{ item.${key} }}`, this._selectedItem[key]);
+    });
   }
 
   set items(value: any[]) {
@@ -66,5 +88,6 @@ export class PopupSelectComponent extends HTMLElement {
   set selectedItem(selectedItem: any) {
     this._selectedItem = selectedItem;
     this.resolvePopupListElement();
+    this.resolveSelectedItemDisplay();
   }
 }

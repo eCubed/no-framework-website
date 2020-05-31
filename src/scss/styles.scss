@@ -1,4 +1,4 @@
-
+@import './variables';
 
 * {
   padding: 0;
@@ -8,15 +8,15 @@
   box-sizing: border-box;
 }
 
-@import './variables';
-@import './elements.scss';
-@import './widgets.scss';
-
 body {
   // background-image: url('../assets/landscape-scenic-going-to-the-sun-road-rocky-mountains-163550.jpeg');
   background-size: cover;
   color: white;
 }
+
+@import './elements.scss';
+@import './widgets.scss';
+
 
 .page-content {
   width: 50%;  

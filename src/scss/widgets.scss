@@ -5,3 +5,14 @@
   grid-template-columns: 1fr 5fr;
   background-color: mix($main-color, white, 30%);
 }
+
+templated-c {
+  --theme-heading-color: #{$main-color};
+}
+
+popup-select-c, list-c {
+  --theme-selected-background-color: #{$main-color};
+  --theme-selected-color: white;
+  --theme-hover-background-color: #{mix($main-color, white, 70%)};
+  --theme-hover-color: white;
+}

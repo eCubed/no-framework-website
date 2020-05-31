@@ -5,8 +5,16 @@
   padding: $general-spacing;
   display: flex;
   gap: $general-spacing;
+  transition: background-color 0.5s ease-in-out,
+              color 0.5s ease-in-out;
 
   &.selected {
-    background-color: yellow;
+    background-color: var(--theme-selected-background-color, yellow);
+    color: var(--theme-selected-color, black);
+  }
+
+  &:hover {
+    background-color: var(--theme-hover-background-color, #eeeeee);
+    color: var(--theme-hover-color, black);
   }
 }

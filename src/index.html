@@ -20,14 +20,14 @@
       </footer-template>
     </templated-c>
     <popup-select-c>
-      <div class="repeater-item">
-        <div class="index">
-          {{ index }}
-        </div>
-        <div class="info">          
+      <item-template>
+        <div class="repeater-item">
           {{ item.name }} - {{ item.number }}
         </div>
-      </div>
+      </item-template>
+      <selected-item-template>
+        {{ item.number }} - {{ item.name }}
+      </selected-item-template>      
     </popup-select-c>
     <!--
     <list-c>
